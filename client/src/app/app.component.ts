@@ -1,13 +1,38 @@
-import { Component } from '@angular/core';
+import { Component, Inject, Injector, OnInit } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
+import { CourseCardComponent } from './courses/course-card/course-card.component';
+import { Course } from './model/course';
+import { COURSES } from '../db-data';
+import { CoursesService } from './courses/courses.service';
+import { AppConfig, CONFIG_TOKEN } from './config';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [CourseCardComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
-  title = 'client';
+export class AppComponent implements OnInit {
+  courses: Course[] = COURSES;
+
+  coursesTotal = this.courses.length
+
+  constructor(
+    private coursesService: CoursesService,
+    @Inject(CONFIG_TOKEN) private config: AppConfig,
+    private injector: Injector ){}
+
+  ngOnInit(): void {
+    
+  }
+
+  onEditCourse(){
+    this.courses[1].category = 'ADVANCED';
+  }
+
+  save(course: Course){
+    this.coursesService.saveCourse(course)
+        .subscribe(() => console.log('Course Saved'))
+  }
 }
