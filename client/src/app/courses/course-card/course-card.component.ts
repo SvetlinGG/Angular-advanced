@@ -13,15 +13,15 @@ export class CourseCardComponent implements OnInit {
 
 
   @Input()
-  course: Course;
+  course!: Course;
 
   @Input()
-  cardIndex: number;
+  cardIndex!: number;
 
   @Output('courseChanged')
   courseEmitter = new EventEmitter<Course>();
 
-  constructor(private coursesService: CoursesService, @Attribute('type') private: type: string){}
+  constructor(private coursesService: CoursesService, @Attribute('type') private type: string){}
 
 
   ngOnInit(): void {
