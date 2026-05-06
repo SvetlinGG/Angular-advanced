@@ -10,25 +10,24 @@
     <div class="demo">
 
 
-      <button (click)="onEditCourse()" i18n>Edit Course</button>
+      <button (click)="onEditCourse()">Edit Course</button>
 
     </div>
 
     <div class="courses">
 
-      @for (course of  courses  ; track course) {
-        {{ course.description }}
-      
-    }
-
+      @for (course of courses; track course.id) {
+        <app-course-card
+          [course]="course"
+          [cardIndex]="$index"
+          (courseChanged)="save($event)"
+          type="beginner">
+        </app-course-card>
+      }
 
   </div>
 
 
 </div>
-
-
-
-
 
 <router-outlet />
