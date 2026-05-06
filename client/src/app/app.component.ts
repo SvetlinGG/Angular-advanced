@@ -1,7 +1,7 @@
 import { Component, Inject, Injector, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CourseCardComponent } from './courses/course-card/course-card.component';
-import { CourseImageComponent } from './courses/course-image/course-image.component';
+//import { CourseImageComponent } from './courses/course-image/course-image.component';
 import { Course } from './model/course';
 import { COURSES } from '../db-data';
 import { CoursesService } from './courses/courses.service';
@@ -10,7 +10,7 @@ import { AppConfig, CONFIG_TOKEN } from './config';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CourseCardComponent, CourseImageComponent, RouterOutlet],
+  imports: [CourseCardComponent, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

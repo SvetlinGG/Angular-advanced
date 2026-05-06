@@ -17,12 +17,8 @@
     <div class="courses">
 
       @for (course of  courses  ; track course) {
-        <course-card
-          (courseChanged)="save($event)"
-          type="beginner"
-          [course]="course">
-        <course-image [src]="course.iconUrl"></course-image>
-      </course-card>
+        {{ course.description }}
+      
     }
 
 
