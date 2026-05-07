@@ -28,6 +28,10 @@ export class CourseCardComponent implements OnInit {
     
   }
 
+  onCourseVisible(){
+    return this.course && this.course.iconUrl
+  }
+
   onTitleChanged(newTitle: string){
     this.course.description = newTitle
   }
