@@ -41,11 +41,7 @@ export class CourseCardComponent implements OnInit {
     this.courseEmitter.emit({...this.course, description})
   }
 
-  cardClasses(){
-    if(this.course.category == 'BEGINNER'){
-      return 'beginner';
-    }
-  }
+  
 
   cardStyles(){
     return {

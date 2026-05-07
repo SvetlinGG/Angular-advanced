@@ -22,6 +22,7 @@
           [cardIndex]="$index"
           (courseChanged)="save($event)"
           type="beginner">
+          <app-course-image [src]="course.iconUrl"></app-course-image>
         </app-course-card>
       }
 

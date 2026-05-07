@@ -1,13 +1,11 @@
 @if (course) {
-    <div class="course-card" #container
-      [ngClass]="cardClasses()">
+    <div class="course-card" #container>
       
       <div class="course-title">
         {{ cardIndex || '' + ' ' + course.description }}
       </div>
       @if (course.iconUrl) {
-        <ng-content select="course-image"
-        ></ng-content>
+        <ng-content select="app-course-image"></ng-content>
       }
       <div class="course-description">
         Edit Title: <input #courseTitle [value]="course.description"
