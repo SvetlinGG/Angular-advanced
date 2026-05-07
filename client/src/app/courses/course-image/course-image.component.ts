@@ -10,7 +10,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class CourseImageComponent implements OnInit {
 
   @Input('src')
-  imageUrl: string;
+  imageUrl!: string;
 
 
   constructor(){}
